@@ -1,5 +1,5 @@
 var http = require("http");
-var user = require("./src/user.js");
+var user = require("./user.js");
 var server = {
 
   port: 8080,
