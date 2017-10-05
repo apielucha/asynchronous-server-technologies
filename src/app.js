@@ -17,14 +17,14 @@ var server = {
         last_name: 'Pielucha',
         birth_date: '1996-02-28'
       }, function(user) {
-        this.print(res, 200, 'New user added: ' + JSON.stringify(user));
+        server.print(res, 200, 'New user added: ' + JSON.stringify(user));
       });
     } else if ((/^\/user\/get\/[0-9]+$/i).test(url)) {
       user.get(url.match(/[0-9]+$/)[0], function(id) {
-        this.print(res, 200, 'You requested user ' + id + '.');
+        server.print(res, 200, 'You requested user ' + id + '.');
       });
     } else {
-      this.print(res, 400, 'Error 404, page not found.');
+      server.print(res, 400, 'Error 404, page not found.');
     }
   },
   print: function(res, http_code, message) {
