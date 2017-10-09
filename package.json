@@ -4,8 +4,8 @@
   "description": "Class of Asynchronous Server Technologies - ECE Paris, 2017",
   "main": "index.js",
   "scripts": {
-    "test": "./bin/test",
-    "start": "node src/app.js"
+    "test": "./bin/test ./tests/*",
+    "start": "./bin/start"
   },
   "repository": {
     "type": "git",
