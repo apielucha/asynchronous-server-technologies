@@ -20,7 +20,6 @@ renderResource = (type, filename, res) ->
 
   else if type == 'css'
     # css => stylus
-    console.log filename
     stylus.render fs.readFileSync("src/assets/#{filename}.styl", 'utf8'),
       {}
     , (err, css) ->
@@ -29,13 +28,6 @@ renderResource = (type, filename, res) ->
         'Content-Type': 'text/css'
       res.write css
       res.end()
-
-    # fs.readFile "public/css/#{filename}", (err, file) ->
-    #   throw err if err
-    #   res.writeHead 200,
-    #     'Content-Type': 'text/css'
-    #   res.write file
-    #   res.end()
 
 server =
   # IP Address of the server
@@ -63,7 +55,7 @@ server =
         # fs.readFile 'public/html/index.html'
         renderResource 'html', 'index', res
       when 'public'
-        renderResource type, filename.split('.')[0], res
+        renderResource type, filename, res
       when 'user'
         server.print res, 200, 'Ok.'
       else
